@@ -62,3 +62,31 @@ current_class = input("Which class are you taking? ")
 print(current_class + " is taught by " + my_dict[current_class])
 my_dict["IE 201"] = "Tamer Unal"
 print(my_dict)
+
+my_set = {3, 4, 10}
+print(type(my_set))
+print(my_set)
+
+my_set.add(20)
+print(my_set)
+
+my_set.add(4)
+print(my_set)
+
+# list allows duplicates
+my_list2 = [4, 10]
+print(my_list2)
+my_list2.append(4)
+print(my_list2)
+
+# a way of removing duplicates from a list
+my_list_with_duplicates = ["a", "daf", "a", "fsf"]
+print(my_list_with_duplicates)
+my_set_without_duplicates = set(my_list_with_duplicates) 
+print(my_set_without_duplicates)
+my_list_without_duplicates = list(my_set_without_duplicates)
+print(my_list_without_duplicates)
+
+# one-line version
+unique_list = list(set(["a", "daf", "a", "fsf"]))
+print(unique_list)
