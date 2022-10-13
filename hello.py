@@ -21,28 +21,29 @@ def fibonacci_recursive(n):
     n2 = fibonacci_recursive(n-2)
     return n1 + n2
 
-fib5 = fibonacci(5)
-
-fib5_recursive = fibonacci_recursive(5)
-
-print(fibonacci_recursive)
-
-N = 990
-# iterative_start = time.time()
-# five_factorial = factorial(N)
-# iterative_end = time.time()
-# print("N! = " + str(five_factorial) + " computation time: " + str(iterative_end - iterative_start))
-
-# def factorial_recursive(n):
-#     if n == 1:
-#         return 1
-#     else:
-#         return n * factorial_recursive(n-1)
-
-# recursive_start = time.time()
-# five_factorial_recursive = factorial_recursive(N)
-# recursive_end = time.time()
-# print("N! = " + str(five_factorial_recursive) + " computation time: " + str(recursive_end - recursive_start))
-
-
+def fibonacci_recursive_cache(n, cache):
+    if n == 1 or n == 2:
+        return 1
+    if n in cache:
+        return cache[n]
     
+    result = fibonacci_recursive_cache(n-1, cache) + fibonacci_recursive_cache(n-2, cache)
+    cache[n] = result
+    return result
+
+N = 40
+iterative_start = time.time()
+iterative_result = fibonacci(N)
+iterative_end = time.time()
+print("Iterative N = " + str(iterative_result) + " computation time: " + str(iterative_end - iterative_start))
+
+recursive_cached_start = time.time()
+recursive_cached_result = fibonacci_recursive_cache(N, {})
+recursive_cached_end = time.time()
+print("Recursive Cached N = " + str(recursive_cached_result) + " computation time: " + str(recursive_cached_end - recursive_cached_start))
+
+recursive_start = time.time()
+recursive_result = fibonacci_recursive(N)
+recursive_end = time.time()
+print("Recursive N = " + str(recursive_result) + " computation time: " + str(recursive_end - recursive_start))
+
