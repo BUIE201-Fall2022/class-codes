@@ -14,9 +14,18 @@ def fibonacci(n):
         i += 1
     return current
 
+def fibonacci_recursive(n):
+    if n == 1 or n == 2:
+        return 1
+    n1 = fibonacci_recursive(n-1) 
+    n2 = fibonacci_recursive(n-2)
+    return n1 + n2
+
 fib5 = fibonacci(5)
 
+fib5_recursive = fibonacci_recursive(5)
 
+print(fibonacci_recursive)
 
 N = 990
 # iterative_start = time.time()
