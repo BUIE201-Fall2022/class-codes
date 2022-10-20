@@ -21,26 +21,3 @@ class Date:
         print("The date is: {}/{}/{}".format(self.Day, self.Month, self.Year))
 
 today = Date(2022, 10, 18)
-#today.set_date(2022, 10, 18)
-# today.Year = 2022
-# today.Month = 10
-# today.Day = 18
-print(today)
-today.print()
-
-tomorrow = Date(2022, 10, 19)
-#tomorrow.set_date(2022, 10, 19)
-# tomorrow.Year = 2022
-# tomorrow.Month = 10
-# tomorrow.Day = 19
-print(tomorrow)
-tomorrow.print()
-
-wrongday = Date(2022, 25, -4)
-# wrongday.set_date(2022, 25, -4)
-# wrongday.Year = 2022
-# wrongday.Month = 25
-# wrongday.Day = -4
-print(tomorrow)
-wrongday.print()
-
