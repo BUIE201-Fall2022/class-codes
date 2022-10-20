@@ -20,4 +20,20 @@ class Date:
     def print(self):
         print("The date is: {}/{}/{}".format(self.Day, self.Month, self.Year))
 
-today = Date(2022, 10, 18)
+def f(date):
+    print("f - start")
+    date.print()
+    print("f - end")
+
+today = Date(2022, 10, 20)
+print("Today type:", type(today))
+print("Today id:", id(today))
+
+tomorrow = Date(2022, 10, 21)
+print("Tomorrow type:", type(tomorrow))
+print("Tomorrow id:", id(tomorrow))
+
+print("Before f")
+f(today)
+today.print()
+print("After f")
