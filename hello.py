@@ -22,6 +22,8 @@ class Date:
 
 def f(date):
     print("f - start")
+    print("date id:", id(date))
+    date.set_date(2022, 11, 15)
     date.print()
     print("f - end")
 
@@ -34,6 +36,9 @@ print("Tomorrow type:", type(tomorrow))
 print("Tomorrow id:", id(tomorrow))
 
 print("Before f")
+print("today id:", id(today))
 f(today)
 today.print()
+print("today id:", id(today))
 print("After f")
+
