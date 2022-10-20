@@ -61,3 +61,10 @@ print("After g")
 
 print(type(my_int))
 print(id(my_int))
+
+# immutability
+# https://www.guru99.com/mutable-and-immutable-in-python.html
+another_int = 15
+print("another_int id:", id(another_int), " value: ", another_int)
+another_int = 10
+print("another_int id:", id(another_int), " value: ", another_int)
