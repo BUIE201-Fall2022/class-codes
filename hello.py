@@ -64,7 +64,14 @@ print(id(my_int))
 
 # immutability
 # https://www.guru99.com/mutable-and-immutable-in-python.html
+# int, str, float, tuple etc are immutable
 another_int = 15
 print("another_int id:", id(another_int), " value: ", another_int)
 another_int = 10
 print("another_int id:", id(another_int), " value: ", another_int)
+
+f = 3.41
+is_int = f.is_integer()
+print(is_int)
+
+print ("Today's year is: {}".format(2022))
