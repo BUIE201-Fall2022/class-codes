@@ -22,8 +22,9 @@ class Date:
 
 def f(date):
     print("f - start")
-    print("date id:", id(date))
+    print("before set_date date id:", id(date))
     date.set_date(2022, 11, 15)
+    print("after set_date date id:", id(date))
     date.print()
     print("f - end")
 
@@ -37,8 +38,26 @@ print("Tomorrow id:", id(tomorrow))
 
 print("Before f")
 print("today id:", id(today))
+today.print()
 f(today)
 today.print()
 print("today id:", id(today))
+today.print()
 print("After f")
 
+def g(i):
+    print("g - start")
+    print("i id:", id(i), " value: ", i)
+    i += 5
+    print("i id:", id(i), " value: ", i)
+    print("g - end")
+
+my_int = 5
+print("Before g")
+print("my_int id:", id(my_int), " value: ", my_int)
+g(my_int)
+print("my_int id:", id(my_int), " value: ", my_int)
+print("After g")
+
+print(type(my_int))
+print(id(my_int))
