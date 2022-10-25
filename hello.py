@@ -20,3 +20,17 @@ class Date:
     def print(self):
         print("The date is: {}/{}/{}".format(self.Day, self.Month, self.Year))
 
+class Movie:
+    def __init__(self, Name, IMDBScore, Year, Month, Day) -> None:
+        self.Name = Name
+        self.IMDBScore = IMDBScore
+        self.Year = Year
+        self.Month = Month
+        self.Day = Day
+    
+    def print(self):
+        print ("Movie: " + self.Name + " has IMDB score of " + str(self.IMDBScore))
+        print ("It was released on {}/{}/{}".format(self.Day, self.Month, self.Year))
+
+movie = Movie("Top Gun: Maverick", 8.4, 2022, 7, 1)
+movie.print()
