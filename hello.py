@@ -1,3 +1,4 @@
+import sys
 class Date:
     def __init__(self, Year, Month, Day) -> None:
         is_valid = self.set_date(Year, Month, Day)
@@ -35,3 +36,45 @@ class Movie:
 
 movie = Movie("Top Gun: Maverick", 8.4, 2022, 7, 1)
 movie.print()
+
+print (type(movie))
+print (id(movie))
+print (sys.getrefcount(movie))
+
+print (type(movie.ReleaseDate))
+print (id(movie.ReleaseDate))
+print (sys.getrefcount(movie.ReleaseDate))
+
+new_movie = movie
+print (type(new_movie))
+print (id(new_movie))
+print (sys.getrefcount(new_movie))
+
+print (type(new_movie.ReleaseDate))
+print (id(new_movie.ReleaseDate))
+print (sys.getrefcount(new_movie.ReleaseDate))
+
+movie = None
+print (type(new_movie))
+print (id(new_movie))
+print (sys.getrefcount(new_movie))
+
+print (type(new_movie.ReleaseDate))
+print (id(new_movie.ReleaseDate))
+print (sys.getrefcount(new_movie.ReleaseDate))
+
+
+# movie2 = Movie("Amsterdam", 6.2, 2022, 8, 15)
+# movie2.print()
+# print (type(movie2))
+# print (id(movie2))
+
+# print (type(movie2.ReleaseDate))
+# print (id(movie2.ReleaseDate))
+
+# movie3 = movie2
+# print (type(movie3))
+# print (id(movie3))
+
+# print (type(movie3.ReleaseDate))
+# print (id(movie3.ReleaseDate))
