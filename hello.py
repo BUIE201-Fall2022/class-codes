@@ -26,55 +26,38 @@ class Movie:
         self.Name = Name
         self.IMDBScore = IMDBScore
         self.ReleaseDate = Date(Year, Month, Day)
+        self.Viewers = []
     
     def print(self):
         print ("Movie: " + self.Name + " has IMDB score of " + str(self.IMDBScore))
-        # Violates encapsulation principle
-        #print ("It was released on {}/{}/{}".format(self.ReleaseDate.Day, self.ReleaseDate.Month, self.ReleaseDate.Year))
         print ("Release date") 
         self.ReleaseDate.print()
+        if len(self.Viewers) > 0:
+            print("List of viewers: ")
+            for viewer in self.Viewers:
+                viewer.print() 
+    
+    def add_viewer(self, viewer):
+        self.Viewers.append(viewer)
+class Viewer:
+    def __init__(self, Name) -> None:
+        self.Name = Name
+    
+    def print(self):
+        print(self.Name)
 
-movie = Movie("Top Gun: Maverick", 8.4, 2022, 7, 1)
-movie.print()
+top_gun = Movie("Top Gun: Maverick", 8.4, 2022, 7, 1)
+top_gun.print()
+amsterdam = Movie("Amsterdam", 6.2, 2022, 8, 15)
+amsterdam.print()
 
-print (type(movie))
-print (id(movie))
-print (sys.getrefcount(movie))
+caner = Viewer("caner")
+tinaz = Viewer("tinaz")
 
-print (type(movie.ReleaseDate))
-print (id(movie.ReleaseDate))
-print (sys.getrefcount(movie.ReleaseDate))
+top_gun.add_viewer(caner)
+amsterdam.add_viewer(caner)
 
-new_movie = movie
-print (type(new_movie))
-print (id(new_movie))
-print (sys.getrefcount(new_movie))
+amsterdam.add_viewer(tinaz)
 
-print (type(new_movie.ReleaseDate))
-print (id(new_movie.ReleaseDate))
-print (sys.getrefcount(new_movie.ReleaseDate))
-
-movie = None
-print (type(new_movie))
-print (id(new_movie))
-print (sys.getrefcount(new_movie))
-
-print (type(new_movie.ReleaseDate))
-print (id(new_movie.ReleaseDate))
-print (sys.getrefcount(new_movie.ReleaseDate))
-
-
-# movie2 = Movie("Amsterdam", 6.2, 2022, 8, 15)
-# movie2.print()
-# print (type(movie2))
-# print (id(movie2))
-
-# print (type(movie2.ReleaseDate))
-# print (id(movie2.ReleaseDate))
-
-# movie3 = movie2
-# print (type(movie3))
-# print (id(movie3))
-
-# print (type(movie3.ReleaseDate))
-# print (id(movie3.ReleaseDate))
+top_gun.print()
+amsterdam.print()
