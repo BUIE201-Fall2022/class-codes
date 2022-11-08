@@ -21,7 +21,8 @@ class Square:
 
 class NewSquare(Rectangle):
     def __init__(self, dimension) -> None:
-        Rectangle.__init__(self, dimension, dimension)
+        # Rectangle.__init__(self, dimension, dimension)
+        super().__init__(dimension, dimension)
 
 print("Rectangle:")
 rect = Rectangle(10, 15)
