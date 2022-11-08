@@ -1,48 +1,34 @@
-class Rectangle:
-    def __init__(self, height, width) -> None:
-        self.height = height
-        self.width = width
+class Animal:
+    def __init__(self) -> None:
+        pass
+
+    def talk(self):
+        print("Animal doesn't know how to talk")
+
+class Cat(Animal):
+    def __init__(self) -> None:
+        super().__init__()
     
-    def print(self):
-        for i in range(self.height):
-            for j in range(self.width):
-                print("*", end="")
-            print("")
+    def talk(self):
+        print("Miyav")
 
-class Square:
-    def __init__(self, dimension) -> None:
-        self.dimension = dimension
+class Dog(Animal):
+    def __init__(self) -> None:
+        super().__init__()
     
-    def print(self):
-        for i in range(self.dimension):
-            for j in range(self.dimension):
-                print("*", end="")
-            print("")
+    def talk(self):
+        print("Hav")
 
-class NewSquare(Rectangle):
-    def __init__(self, dimension) -> None:
-        super().__init__(dimension, dimension)
-        # add a new variable
-        self.my_field = 10
-    
-    # add a new function
-    def my_function(self):
-        print("NewSquare.my_function()")
-    
-    # function overriding
-    def print(self):
-        print("NewSquare.print()")
-        super().print()
+cat = Cat()
+#cat.talk()
 
-print("Rectangle:")
-rect = Rectangle(10, 15)
-rect.print()
+dog = Dog()
+#dog.talk()
 
-print("Square:")
-sqr = Square(6)
-sqr.print()
+cat2 = Cat()
+#cat.talk()
 
-print("NewSquare:")
-nsqr = NewSquare(10)
-nsqr.print()
-nsqr.my_function()
+# polymorphism
+my_pets = [cat, dog, cat2]
+for pet in my_pets:
+    pet.talk()
