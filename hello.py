@@ -21,8 +21,18 @@ class Square:
 
 class NewSquare(Rectangle):
     def __init__(self, dimension) -> None:
-        # Rectangle.__init__(self, dimension, dimension)
         super().__init__(dimension, dimension)
+        # add a new variable
+        self.my_field = 10
+    
+    # add a new function
+    def my_function(self):
+        print("NewSquare.my_function()")
+    
+    # function overriding
+    def print(self):
+        print("NewSquare.print()")
+        super().print()
 
 print("Rectangle:")
 rect = Rectangle(10, 15)
@@ -35,3 +45,4 @@ sqr.print()
 print("NewSquare:")
 nsqr = NewSquare(10)
 nsqr.print()
+nsqr.my_function()
