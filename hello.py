@@ -39,3 +39,25 @@ def f():
     pass
 
 print(type(f))
+
+
+row1 = [3, 2, 1]
+row2 = [1, 6, 8]
+
+m = [row1, row2]
+
+print(m[0][2])
+
+# matrix m, n
+
+m = 3
+n = 5
+matrix = []
+for i in range(m):
+    matrix.append([])
+    for j in range(n):
+        matrix[i].append(j)
+
+print(type(matrix))
+print(type(matrix[0]))
+print(type(matrix[0][0]))
