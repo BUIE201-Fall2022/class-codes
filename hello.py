@@ -1,34 +1,41 @@
-class Animal:
-    def __init__(self) -> None:
-        pass
+print(issubclass(bool, int))
 
-    def talk(self):
-        print("Animal doesn't know how to talk")
+class Animal:
+    pass
 
 class Cat(Animal):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def talk(self):
-        print("Miyav")
+    pass
 
-class Dog(Animal):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def talk(self):
-        print("Hav")
+print(issubclass(Cat, Animal))
 
-cat = Cat()
-#cat.talk()
+class Car:
+    pass
 
-dog = Dog()
-#dog.talk()
+my_car = Car()
 
-cat2 = Cat()
-#cat.talk()
+print(type(my_car))
+print(type(Car))
+print(type(Animal))
 
-# polymorphism
-my_pets = [cat, dog, cat2]
-for pet in my_pets:
-    pet.talk()
+
+print(issubclass(Car, Animal))
+
+print(issubclass(int, float))
+
+# floating point arithmetic is inexact
+print (0.1 + 0.2 == 0.3)
+
+# integer arithmetic is exact
+print (1 + 2 == 3)
+
+# everything is an object in Python
+my_list = [3, "str"]
+
+print(issubclass(int, object))
+print(issubclass(str, object))
+print(issubclass(list, object))
+
+def f():
+    pass
+
+print(type(f))
