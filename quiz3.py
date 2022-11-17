@@ -52,7 +52,7 @@ print(result2n)
 for n in range(1000000, 1000005):
     randomlist = []
     for i in range(n):
-        number = random.randint(0,n)
+        number = random.randint(0, 10*n)
         randomlist.append(number)
     start = time.time()
     check_duplicate_n2(randomlist)
