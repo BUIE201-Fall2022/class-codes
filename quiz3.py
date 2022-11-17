@@ -1,3 +1,6 @@
+import random
+import time
+
 # O(N^2)
 def check_duplicate_n2(check):
     n_elements = len(check)
@@ -45,4 +48,19 @@ result2nlogn = check_duplicates_nlogn(check2)
 print(result2nlogn)
 result2n = check_duplicates_n(check2)
 print(result2n)
+
+for n in range(1000000, 1000005):
+    randomlist = []
+    for i in range(n):
+        number = random.randint(0,n)
+        randomlist.append(number)
+    start = time.time()
+    check_duplicate_n2(randomlist)
+    print(n, "check_duplicate_n2 ", time.time() - start)
+    start = time.time()
+    check_duplicates_nlogn(randomlist)
+    print(n, "check_duplicate_nlogn ", time.time() - start)
+    start = time.time()
+    check_duplicates_n(randomlist)
+    print(n, "check_duplicate_n ", time.time() - start)
 
