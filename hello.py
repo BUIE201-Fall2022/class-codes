@@ -1,63 +1,25 @@
-print(issubclass(bool, int))
+class Array:
+    def __init__(self) -> None:
+        self._count = 0
+        self._array = None
+    
+    def insert(self, value):
+        # create a bigger array
+        new_count = self._count + 1
+        new_array = [None] * new_count
+        
+        # copy existing elements to the new array
+        for i in range(self._count):
+            new_array[i] = self._array[i]
+        
+        # add the new value at the last index
+        new_array[new_count - 1] = value
 
-class Animal:
-    pass
-
-class Cat(Animal):
-    pass
-
-print(issubclass(Cat, Animal))
-
-class Car:
-    pass
-
-my_car = Car()
-
-print(type(my_car))
-print(type(Car))
-print(type(Animal))
-
-
-print(issubclass(Car, Animal))
-
-print(issubclass(int, float))
-
-# floating point arithmetic is inexact
-print (0.1 + 0.2 == 0.3)
-
-# integer arithmetic is exact
-print (1 + 2 == 3)
-
-# everything is an object in Python
-my_list = [3, "str"]
-
-print(issubclass(int, object))
-print(issubclass(str, object))
-print(issubclass(list, object))
-
-def f():
-    pass
-
-print(type(f))
-
-
-row1 = [3, 2, 1]
-row2 = [1, 6, 8]
-
-m = [row1, row2]
-
-print(m[0][2])
-
-# matrix m, n
-
-m = 3
-n = 5
-matrix = []
-for i in range(m):
-    matrix.append([])
-    for j in range(n):
-        matrix[i].append(j)
-
-print(type(matrix))
-print(type(matrix[0]))
-print(type(matrix[0][0]))
+        # update member variables
+        self._count = new_count
+        self._array = new_array
+        
+my_array = Array()
+my_array.insert(15)
+my_array.insert(10)
+my_array.insert(3)
