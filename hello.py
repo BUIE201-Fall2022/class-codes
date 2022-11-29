@@ -26,6 +26,44 @@ class LinkedList:
             while current_node.next is not None:
                 current_node = current_node.next
             current_node.next = new_node
+    
+    # O(n)
+    def find(self, value):
+        if self.root == None:
+            return False
+        else:
+            current_node = self.root
+            while current_node is not None:
+                if current_node.value == value:
+                    return True
+                else:
+                    current_node = current_node.next
+            return False
+    
+    # O(n)
+    def size(self):
+        if self.root == None:
+            return 0
+        else:
+            current_node = self.root
+            count = 1
+            while current_node.next is not None:
+                current_node = current_node.next
+                count += 1
+            return count
+    
+    # O(n)
+    def remove(self, value):
+        if self.root == None:
+            return
+        else:
+            current_node = self.root
+            while current_node.next is not None:
+                if current_node.next.value == value:
+                    current_node.next = current_node.next.next
+                    return
+                else:
+                    current_node = current_node.next
 
 my_list = LinkedList()
 my_list.insert_begin(15)
@@ -35,5 +73,12 @@ my_list.insert_begin(3)
 my_list.insert_begin(20)
 
 my_list.insert_end(40)
+
+result5 = my_list.find(5)
+result100 = my_list.find(100)
+
+sz = my_list.size()
+
+my_list.remove(10)
 
 i = 5
