@@ -51,7 +51,7 @@ class LinkedList:
                 current_node = current_node.next
                 count += 1
             return count
-    
+
     # O(n)
     def remove(self, value):
         if self.root == None:
@@ -64,6 +64,17 @@ class LinkedList:
                     return
                 else:
                     current_node = current_node.next
+    
+    def print(self):
+        print("[", end="")
+        if self.root is not None:
+            current_node = self.root
+            while current_node is not None:
+                print (str(current_node.value) + ", ", end="")
+                current_node = current_node.next
+        print("]")
+
+
 
 my_list = LinkedList()
 my_list.insert_begin(15)
@@ -80,5 +91,7 @@ result100 = my_list.find(100)
 sz = my_list.size()
 
 my_list.remove(10)
+
+my_list.print()
 
 i = 5
