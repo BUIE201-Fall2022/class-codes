@@ -3,77 +3,96 @@ class ListNode:
         self.value = value
         self.next = None
 
+    def insert(self, value):
+        # base condition
+        if self.next is None:
+            self.next = ListNode(value)
+        else:   # recursion
+            self.next.insert(value)
+    
+    def find(self, value):
+        # base condition
+        if self.value == value:
+            return True
+        elif self.next is None:
+            return False
+        else:   # recursion
+            return self.next.find(value)
+    
+    def size(self):
+        if self.next is None:
+            return 1
+        else:
+            return 1 + self.next.size()
+    
+    def remove(self, value):
+        # base condition
+        if self.value == value:
+            return self.next
+        elif self.next is None:
+            return self
+        else:   # recursion
+            self.next = self.next.remove(value)
+            return self
+    
+    def print(self):
+        print (str(self.value) + ", ", end="")
+        if self.next is not None:
+            self.next.print()
+    
+    def print_backward(self):
+        if self.next is not None:
+            self.next.print_backward()
+        print (str(self.value) + ", ", end="")
 class LinkedList:
     def __init__(self) -> None:
         self.root = None
     
     # O(1)
     def insert_begin(self, value):
-        if self.root == None:
-            self.root = ListNode(value)
-        else:
-            new_node = ListNode(value)
-            new_node.next = self.root
-            self.root = new_node
+        new_node = ListNode(value)
+        new_node.next = self.root
+        self.root = new_node
     
     # O(n)
     def insert_end(self, value):
-        if self.root == None:
+        if self.root is None:
             self.root = ListNode(value)
         else:
-            new_node = ListNode(value)
-            current_node = self.root
-            while current_node.next is not None:
-                current_node = current_node.next
-            current_node.next = new_node
+            self.root.insert(value)
     
     # O(n)
     def find(self, value):
-        if self.root == None:
+        if self.root is None:
             return False
         else:
-            current_node = self.root
-            while current_node is not None:
-                if current_node.value == value:
-                    return True
-                else:
-                    current_node = current_node.next
-            return False
+            return self.root.find(value)
     
     # O(n)
     def size(self):
-        if self.root == None:
+        if self.root is None:
             return 0
         else:
-            current_node = self.root
-            count = 1
-            while current_node.next is not None:
-                current_node = current_node.next
-                count += 1
-            return count
-
+            return self.root.size()
     # O(n)
     def remove(self, value):
-        if self.root == None:
+        if self.root is None:
             return
         else:
-            current_node = self.root
-            while current_node.next is not None:
-                if current_node.next.value == value:
-                    current_node.next = current_node.next.next
-                    return
-                else:
-                    current_node = current_node.next
+            self.root = self.root.remove(value)
     
+    #O(n)
     def print(self):
-        print("[", end="")
-        if self.root is not None:
-            current_node = self.root
-            while current_node is not None:
-                print (str(current_node.value) + ", ", end="")
-                current_node = current_node.next
-        print("]")
+        if self.root is None:
+            return
+        else:
+            self.root.print()
 
+    def print_backward(self):
+        if self.root is None:
+            return
+        else:
+            self.root.print_backward()
 
 
 my_list = LinkedList()
@@ -93,5 +112,7 @@ sz = my_list.size()
 my_list.remove(10)
 
 my_list.print()
+my_list.print_backward()
+
 
 i = 5
