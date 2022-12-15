@@ -48,6 +48,15 @@ class TreeNode:
         print(str(self.value) + ",", end="")
         if self.left:
             self.left.print_recursive()
+        
+    def sum_recursive(self):
+        left_sum = 0
+        if self.left:
+            left_sum = self.left.sum_recursive()
+        right_sum = 0
+        if self.right:
+            right_sum = self.right.sum_recursive()
+        return self.value + left_sum + right_sum
 
 
 class Tree:
@@ -78,19 +87,30 @@ class Tree:
         if self.root:
             self.root.print_recursive()
         print("}")
+    
+    def sum(self):
+        if self.root is None:
+            return 0
+        else:
+            return self.root.sum_recursive()
 
 my_tree = Tree()
-my_tree.insert(100)
-my_tree.insert(50)
-my_tree.insert(200)
-my_tree.insert(30)
-my_tree.insert(300)
-my_tree.insert(150)
-my_tree.insert(70)
+# my_tree.insert(100)
+# my_tree.insert(50)
+# my_tree.insert(200)
+# my_tree.insert(30)
+# my_tree.insert(300)
+# my_tree.insert(150)
+# my_tree.insert(70)
+
+my_tree.insert("xyz")
+my_tree.insert("abc")
 
 size = my_tree.size()
 
-found30 = my_tree.find(30)
-found1000 = my_tree.find(1000)
+# found30 = my_tree.find(30)
+# found1000 = my_tree.find(1000)
+
+sum = my_tree.sum()
 
 my_tree.print()
