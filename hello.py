@@ -1,116 +1,39 @@
-class TreeNode:
-    def __init__(self, value) -> None:
-        self.value = value
-        self.left = None
-        self.right = None
-    
-    # O(log n)
-    def insert_recursive(self, value):
-        if value <= self.value:
-            if self.left is None:
-                self.left = TreeNode(value)
-            else:
-                self.left.insert_recursive(value)
-        else:
-            if self.right is None:
-                self.right = TreeNode(value)
-            else:
-                self.right.insert_recursive(value)
-    
-    # O(n)
-    def size_recursive(self):
-        left_size = 0
-        if self.left:
-            left_size = self.left.size_recursive()
-        right_size = 0
-        if self.right:
-            right_size = self.right.size_recursive()
-        
-        return left_size + right_size + 1  
+print (hash(1))
+print (hash(1.5))
+print (hash("caner"))
 
-    def find_recursive(self, value):
-        if value == self.value:
-            return True
-        elif value <= self.value:
-            if self.left is None:
-                return False
-            else:
-                return self.left.find_recursive(value)
-        else:
-            if self.right is None:
-                return False
-            else:
-                return self.right.find_recursive(value)
-
-    def print_recursive(self):
-        if self.right:
-            self.right.print_recursive()
-        print(str(self.value) + ",", end="")
-        if self.left:
-            self.left.print_recursive()
-        
-    def sum_recursive(self):
-        left_sum = 0
-        if self.left:
-            left_sum = self.left.sum_recursive()
-        right_sum = 0
-        if self.right:
-            right_sum = self.right.sum_recursive()
-        return self.value + left_sum + right_sum
-
-
-class Tree:
+class HashTable:
     def __init__(self) -> None:
-        self.root = None
+        self.bucket_size = 100
+        self.hash_table = [None] * self.bucket_size
     
-    def insert(self, value):
-        if self.root is None:
-            self.root = TreeNode(value)
-        else:
-            self.root.insert_recursive(value)
+    # O(1) on average
+    def insert(self, key):
+        index = hash(key) % self.bucket_size
+        if self.hash_table[index] is None:
+            self.hash_table[index] = []
+        self.hash_table[index].append(key)
     
-    def size(self):
-        if self.root is None:
-            return 0
-        else:
-            return self.root.size_recursive()
-    
-    # O(log n)
-    def find(self, value):
-        if self.root is None:
+    # O(1) on average
+    def find(self, key):
+        index = hash(key) % self.bucket_size
+        if self.hash_table[index] is None:
             return False
         else:
-            return self.root.find_recursive(value)
-    
-    def print(self):
-        print("{", end="")
-        if self.root:
-            self.root.print_recursive()
-        print("}")
-    
-    def sum(self):
-        if self.root is None:
-            return 0
-        else:
-            return self.root.sum_recursive()
+            return key in self.hash_table[index]
 
-my_tree = Tree()
-# my_tree.insert(100)
-# my_tree.insert(50)
-# my_tree.insert(200)
-# my_tree.insert(30)
-# my_tree.insert(300)
-# my_tree.insert(150)
-# my_tree.insert(70)
 
-my_tree.insert("xyz")
-my_tree.insert("abc")
+my_hash = HashTable()
+# my_hash.insert(202032234245)
+# my_hash.insert(535353532342)
+# my_hash.insert(202032234245)
 
-size = my_tree.size()
+# return1 = my_hash.find(4353535)
+# return2 = my_hash.find(535353532342)
 
-# found30 = my_tree.find(30)
-# found1000 = my_tree.find(1000)
+my_hash.insert("IE 201")
+my_hash.insert("IE 202")
 
-sum = my_tree.sum()
+return1 = my_hash.find("IE 203")
 
-my_tree.print()
+print(50)
