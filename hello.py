@@ -50,3 +50,18 @@ def bubble_sort(list):
 my_list2 = my_list.copy()
 bubble_sort(my_list2)
 print(my_list2)
+
+words = ["apple", "tomato", "cherry"]
+# explicitly building a list
+capital_words = []
+for word in words:
+    capital_words.append(word.capitalize())
+print(capital_words)
+
+# list comprehension
+capital_words_comp = [x.capitalize() for x in words]
+print(capital_words_comp)
+
+# dict comprehension
+capital_words_dict = {x:x.capitalize() for x in words}
+print(capital_words_dict)
