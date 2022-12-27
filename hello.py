@@ -29,3 +29,24 @@ def binary_search(search, value):
 print(my_sorted_list)
 result6 = binary_search(my_sorted_list, 6)
 result2 = binary_search(my_sorted_list, 2)
+
+#my_sorted_list = sorted(my_list)
+#my_list.sort()
+
+# O(n^2)
+def bubble_sort(list):
+    while True:
+        print(list)
+        already_sorted = True
+
+        for i in range(len(list) - 1):
+            if list[i] > list[i+1]:
+                 list[i], list[i+1] = list[i+1], list[i]
+                 already_sorted = False
+
+        if already_sorted:
+            break
+
+my_list2 = my_list.copy()
+bubble_sort(my_list2)
+print(my_list2)
